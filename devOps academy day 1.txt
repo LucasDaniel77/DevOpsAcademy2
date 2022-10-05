@@ -1,0 +1,164 @@
+To run a command as administrator (user "root"), use "sudo <command>".
+See "man sudo_root" for details.
+
+ubuntu@node1:~/Desktop$ ll
+total 8
+drwxr-xr-x  2 ubuntu ubuntu 4096 Oct  4 11:49 ./
+drwxr-xr-x 11 ubuntu ubuntu 4096 Oct  4 11:49 ../
+ubuntu@node1:~/Desktop$ ls
+ubuntu@node1:~/Desktop$ ls -l
+total 0
+ubuntu@node1:~/Desktop$ clear
+ubuntu@node1:~/Desktop$ sudo su
+root@node1:/home/ubuntu/Desktop# pwd
+/home/ubuntu/Desktop
+root@node1:/home/ubuntu/Desktop# git --version
+git version 2.17.1
+root@node1:/home/ubuntu/Desktop# apt purge git -y
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+The following packages will be REMOVED:
+  git* ubuntu-server*
+0 upgraded, 0 newly installed, 2 to remove and 281 not upgraded.
+After this operation, 32.3 MB disk space will be freed.
+(Reading database ... 183288 files and directories currently installed.)
+Removing ubuntu-server (1.417.5) ...
+Removing git (1:2.17.1-1ubuntu0.8) ...
+(Reading database ... 182561 files and directories currently installed.)
+Purging configuration files for git (1:2.17.1-1ubuntu0.8) ...
+root@node1:/home/ubuntu/Desktop# git --version
+bash: /usr/bin/git: No such file or directory
+root@node1:/home/ubuntu/Desktop# add-apt-repository ppa:git-core/ppa
+ The most current stable version of Git for Ubuntu.
+
+For release candidates, go to https://launchpad.net/~git-core/+archive/candidate .
+ More info: https://launchpad.net/~git-core/+archive/ubuntu/ppa
+Press [ENTER] to continue or Ctrl-c to cancel adding it.
+
+Hit:1 http://dl.google.com/linux/chrome/deb stable InRelease
+Get:2 http://ppa.launchpad.net/git-core/ppa/ubuntu bionic InRelease [20.8 kB]              
+Hit:3 http://ap-south-1.ec2.archive.ubuntu.com/ubuntu bionic InRelease                     
+Get:4 http://ap-south-1.ec2.archive.ubuntu.com/ubuntu bionic-updates InRelease [88.7 kB]   
+Get:5 http://security.ubuntu.com/ubuntu bionic-security InRelease [88.7 kB]         
+Get:6 http://ap-south-1.ec2.archive.ubuntu.com/ubuntu bionic-backports InRelease [83.3 kB] 
+Get:7 http://ppa.launchpad.net/git-core/ppa/ubuntu bionic/main amd64 Packages [4236 B]     
+Get:8 http://ap-south-1.ec2.archive.ubuntu.com/ubuntu bionic-updates/main amd64 Packages [2750 kB]
+Get:9 http://ppa.launchpad.net/git-core/ppa/ubuntu bionic/main Translation-en [2252 B]     
+Get:10 http://security.ubuntu.com/ubuntu bionic-security/main amd64 Packages [2409 kB]     
+Get:11 http://ap-south-1.ec2.archive.ubuntu.com/ubuntu bionic-updates/main amd64 DEP-11 Metadata [297 kB]
+Get:12 http://ap-south-1.ec2.archive.ubuntu.com/ubuntu bionic-updates/universe amd64 Packages [1846 kB]
+Get:13 http://ap-south-1.ec2.archive.ubuntu.com/ubuntu bionic-updates/universe amd64 DEP-11 Metadata [302 kB]
+Get:14 http://ap-south-1.ec2.archive.ubuntu.com/ubuntu bionic-updates/multiverse amd64 DEP-11 Metadata [2468 B]
+Get:15 http://ap-south-1.ec2.archive.ubuntu.com/ubuntu bionic-backports/main amd64 DEP-11 Metadata [8088 B]
+Get:16 http://ap-south-1.ec2.archive.ubuntu.com/ubuntu bionic-backports/universe amd64 DEP-11 Metadata [10.0 kB]
+Get:17 http://security.ubuntu.com/ubuntu bionic-security/main amd64 DEP-11 Metadata [55.3 kB]
+Get:18 http://security.ubuntu.com/ubuntu bionic-security/universe amd64 Packages [1232 kB]
+Get:19 http://security.ubuntu.com/ubuntu bionic-security/universe amd64 DEP-11 Metadata [61.1 kB]
+Get:20 http://security.ubuntu.com/ubuntu bionic-security/multiverse amd64 DEP-11 Metadata [2464 B]
+Fetched 9263 kB in 4s (2276 kB/s)            
+Reading package lists... Done
+root@node1:/home/ubuntu/Desktop# apt update
+Hit:1 http://dl.google.com/linux/chrome/deb stable InRelease
+Hit:2 http://ppa.launchpad.net/git-core/ppa/ubuntu bionic InRelease                        
+Hit:3 http://ap-south-1.ec2.archive.ubuntu.com/ubuntu bionic InRelease                     
+Hit:4 http://security.ubuntu.com/ubuntu bionic-security InRelease        
+Hit:5 http://ap-south-1.ec2.archive.ubuntu.com/ubuntu bionic-updates InRelease
+Hit:6 http://ap-south-1.ec2.archive.ubuntu.com/ubuntu bionic-backports InRelease
+Reading package lists... Done                      
+Building dependency tree       
+Reading state information... Done
+281 packages can be upgraded. Run 'apt list --upgradable' to see them.
+root@node1:/home/ubuntu/Desktop# apt install git -y
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+The following additional packages will be installed:
+  git-man libpcre2-8-0
+Suggested packages:
+  git-daemon-run | git-daemon-sysvinit git-doc git-email git-gui gitk gitweb git-cvs
+  git-mediawiki git-svn
+The following NEW packages will be installed:
+  git libpcre2-8-0
+The following packages will be upgraded:
+  git-man
+1 upgraded, 2 newly installed, 0 to remove and 280 not upgraded.
+Need to get 9323 kB of archives.
+After this operation, 46.0 MB of additional disk space will be used.
+Get:1 http://ppa.launchpad.net/git-core/ppa/ubuntu bionic/main amd64 git-man all 1:2.38.0-0ppa1~ubuntu18.04.1 [2062 kB]
+Get:2 http://ap-south-1.ec2.archive.ubuntu.com/ubuntu bionic/universe amd64 libpcre2-8-0 amd64 10.31-2 [179 kB]
+Get:3 http://ppa.launchpad.net/git-core/ppa/ubuntu bionic/main amd64 git amd64 1:2.38.0-0ppa1~ubuntu18.04.1 [7082 kB]
+Fetched 9323 kB in 3s (2953 kB/s)
+(Reading database ... 182561 files and directories currently installed.)
+Preparing to unpack .../git-man_1%3a2.38.0-0ppa1~ubuntu18.04.1_all.deb ...
+Unpacking git-man (1:2.38.0-0ppa1~ubuntu18.04.1) over (1:2.17.1-1ubuntu0.8) ...
+Selecting previously unselected package libpcre2-8-0:amd64.
+Preparing to unpack .../libpcre2-8-0_10.31-2_amd64.deb ...
+Unpacking libpcre2-8-0:amd64 (10.31-2) ...
+Selecting previously unselected package git.
+Preparing to unpack .../git_1%3a2.38.0-0ppa1~ubuntu18.04.1_amd64.deb ...
+Unpacking git (1:2.38.0-0ppa1~ubuntu18.04.1) ...
+Setting up git-man (1:2.38.0-0ppa1~ubuntu18.04.1) ...
+Setting up libpcre2-8-0:amd64 (10.31-2) ...
+Setting up git (1:2.38.0-0ppa1~ubuntu18.04.1) ...
+Processing triggers for man-db (2.8.3-2ubuntu0.1) ...
+Processing triggers for libc-bin (2.27-3ubuntu1.4) ...
+root@node1:/home/ubuntu/Desktop# git --version
+git version 2.38.0
+root@node1:/home/ubuntu/Desktop# echo $home
+
+root@node1:/home/ubuntu/Desktop# echo $HOME
+/root
+root@node1:/home/ubuntu/Desktop# ls -la /root
+total 36
+drwx------  6 root root 4096 Oct  4 12:03 .
+drwxr-xr-x 23 root root 4096 Oct  4 11:48 ..
+-rw-r--r--  1 root root 3106 Apr  9  2018 .bashrc
+drwx------  3 root root 4096 Jul 14  2021 .cache
+drwx------  3 root root 4096 Oct  4 12:03 .gnupg
+-rw-r--r--  1 root root  148 Aug 17  2015 .profile
+-rw-------  1 root root    0 Jul 14  2021 .python_history
+drwx------  2 root root 4096 Jan 26  2019 .ssh
+-rw-------  1 root root 1280 Jul 14  2021 .viminfo
+drwxr-xr-x  3 root root 4096 Jan 26  2019 snap
+root@node1:/home/ubuntu/Desktop# git config --global user.name globaluser
+root@node1:/home/ubuntu/Desktop# ls -la /root
+total 40
+drwx------  6 root root 4096 Oct  4 12:22 .
+drwxr-xr-x 23 root root 4096 Oct  4 11:48 ..
+-rw-r--r--  1 root root 3106 Apr  9  2018 .bashrc
+drwx------  3 root root 4096 Jul 14  2021 .cache
+-rw-r--r--  1 root root   26 Oct  4 12:22 .gitconfig
+drwx------  3 root root 4096 Oct  4 12:03 .gnupg
+-rw-r--r--  1 root root  148 Aug 17  2015 .profile
+-rw-------  1 root root    0 Jul 14  2021 .python_history
+drwx------  2 root root 4096 Jan 26  2019 .ssh
+-rw-------  1 root root 1280 Jul 14  2021 .viminfo
+drwxr-xr-x  3 root root 4096 Jan 26  2019 snap
+(arg: 2) git config --global user.email lucasdbockor^C
+root@node1:/home/ubuntu/Desktop# git config --global user.email lucasdbockor@gmail.com
+root@node1:/home/ubuntu/Desktop# mkdir gitrepo
+root@node1:/home/ubuntu/Desktop# cd gitrepo
+root@node1:/home/ubuntu/Desktop/gitrepo# mkdir devopsacademy
+root@node1:/home/ubuntu/Desktop/gitrepo# cd devopsacademy
+root@node1:/home/ubuntu/Desktop/gitrepo/devopsacademy# git init
+hint: Using 'master' as the name for the initial branch. This default branch name
+hint: is subject to change. To configure the initial branch name to use in all
+hint: of your new repositories, which will suppress this warning, call:
+hint: 
+hint: 	git config --global init.defaultBranch <name>
+hint: 
+hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+hint: 'development'. The just-created branch can be renamed via this command:
+hint: 
+hint: 	git branch -m <name>
+Initialized empty Git repository in /home/ubuntu/Desktop/gitrepo/devopsacademy/.git/
+root@node1:/home/ubuntu/Desktop/gitrepo/devopsacademy# ls -la
+total 12
+drwxr-xr-x 3 root root 4096 Oct  4 12:25 .
+drwxr-xr-x 3 root root 4096 Oct  4 12:25 ..
+drwxr-xr-x 7 root root 4096 Oct  4 12:25 .git
+root@node1:/home/ubuntu/Desktop/gitrepo/devopsacademy# ls .git/
+HEAD  branches  config  description  hooks  info  objects  refs
+root@node1:/home/ubuntu/Desktop/gitrepo/devopsacademy# git config --local user.name lucasbockor
+root@node1:/home/ubuntu/Desktop/gitrepo/devopsacademy# 
